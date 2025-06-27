@@ -1,0 +1,16 @@
+pgbench -h 127.0.0.1 -p 5432 -U postgres -d postgres -c 200 -j 8 -t 200 -M prepared -n -f ../workloads/read50_write50.sql --max-tries=5
+pgbench (17.4, server 17.5 (Debian 17.5-1.pgdg120+1))
+transaction type: ../workloads/read50_write50.sql
+scaling factor: 1
+query mode: prepared
+number of clients: 200
+number of threads: 8
+maximum number of tries: 5
+number of transactions per client: 200
+number of transactions actually processed: 40000/40000
+number of failed transactions: 0 (0.000%)
+number of transactions retried: 0 (0.000%)
+total number of retries: 0
+latency average = 185.609 ms
+initial connection time = 626.999 ms
+tps = 1077.533753 (without initial connection time)

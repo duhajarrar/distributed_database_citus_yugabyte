@@ -1,0 +1,183 @@
+
+services:
+  yb-master:
+    image: yugabytedb/yugabyte:latest
+    container_name: yb-master
+    hostname: yb-master
+    command: >
+      bin/yb-master
+        --fs_data_dirs=/home/yugabyte/data
+        --master_addresses=yb-master:7100
+        --rpc_bind_addresses=yb-master:7100
+        --webserver_interface=0.0.0.0
+        --webserver_port=7000
+        --ysql_enable_auth=false
+        --ysql_max_connections=1000
+    ports:
+      - "7000:7000"
+    networks:
+      - yb-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:7000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  yb-tserver1:
+    image: yugabytedb/yugabyte:latest
+    container_name: yb-tserver1
+    hostname: yb-tserver1
+    command: >
+      bin/yb-tserver
+        --fs_data_dirs=/mnt/tserver-data
+        --tserver_master_addrs=yb-master:7100
+        --rpc_bind_addresses=yb-tserver1:9100
+        --webserver_interface=0.0.0.0
+        --webserver_port=9000
+        --pgsql_proxy_bind_address=0.0.0.0:5433
+        --ysql_enable_auth=false
+        --ysql_max_connections=1000
+    ports:
+      - "5433:5433"
+      - "9001:9000"
+    depends_on:
+      yb-master:
+        condition: service_healthy
+    networks:
+      - yb-net
+
+  yb-tserver2:
+    image: yugabytedb/yugabyte:latest
+    container_name: yb-tserver2
+    hostname: yb-tserver2
+    command: >
+      bin/yb-tserver
+        --fs_data_dirs=/mnt/tserver-data
+        --tserver_master_addrs=yb-master:7100
+        --rpc_bind_addresses=yb-tserver2:9100
+        --webserver_interface=0.0.0.0
+        --webserver_port=9000
+        --pgsql_proxy_bind_address=0.0.0.0:5433
+        --ysql_enable_auth=false
+        --ysql_max_connections=1000
+    ports:
+      - "9002:9000"
+    depends_on:
+      yb-master:
+        condition: service_healthy
+    networks:
+      - yb-net
+
+  yb-tserver3:
+    image: yugabytedb/yugabyte:latest
+    container_name: yb-tserver3
+    hostname: yb-tserver3
+    command: >
+      bin/yb-tserver
+        --fs_data_dirs=/mnt/tserver-data
+        --tserver_master_addrs=yb-master:7100
+        --rpc_bind_addresses=yb-tserver3:9100
+        --webserver_interface=0.0.0.0
+        --webserver_port=9000
+        --pgsql_proxy_bind_address=0.0.0.0:5433
+        --ysql_enable_auth=false
+        --ysql_max_connections=1000
+    ports:
+      - "9003:9000"
+    depends_on:
+      yb-master:
+        condition: service_healthy
+    networks:
+      - yb-net
+
+  yb-tserver4:
+    image: yugabytedb/yugabyte:latest
+    container_name: yb-tserver4
+    hostname: yb-tserver4
+    command: >
+      bin/yb-tserver
+        --fs_data_dirs=/mnt/tserver-data
+        --tserver_master_addrs=yb-master:7100
+        --rpc_bind_addresses=yb-tserver4:9100
+        --webserver_interface=0.0.0.0
+        --webserver_port=9000
+        --pgsql_proxy_bind_address=0.0.0.0:5433
+        --ysql_enable_auth=false
+        --ysql_max_connections=1000
+    ports:
+      - "9004:9000"
+    depends_on:
+      yb-master:
+        condition: service_healthy
+    networks:
+      - yb-net
+
+  yb-tserver5:
+    image: yugabytedb/yugabyte:latest
+    container_name: yb-tserver5
+    hostname: yb-tserver5
+    command: >
+      bin/yb-tserver
+        --fs_data_dirs=/mnt/tserver-data
+        --tserver_master_addrs=yb-master:7100
+        --rpc_bind_addresses=yb-tserver5:9100
+        --webserver_interface=0.0.0.0
+        --webserver_port=9000
+        --pgsql_proxy_bind_address=0.0.0.0:5433
+        --ysql_enable_auth=false
+        --ysql_max_connections=1000
+    ports:
+      - "9005:9000"
+    depends_on:
+      yb-master:
+        condition: service_healthy
+    networks:
+      - yb-net
+
+  yb-tserver6:
+    image: yugabytedb/yugabyte:latest
+    container_name: yb-tserver6
+    hostname: yb-tserver6
+    command: >
+      bin/yb-tserver
+        --fs_data_dirs=/mnt/tserver-data
+        --tserver_master_addrs=yb-master:7100
+        --rpc_bind_addresses=yb-tserver6:9100
+        --webserver_interface=0.0.0.0
+        --webserver_port=9000
+        --pgsql_proxy_bind_address=0.0.0.0:5433
+        --ysql_enable_auth=false
+        --ysql_max_connections=1000
+    ports:
+      - "9006:9000"
+    depends_on:
+      yb-master:
+        condition: service_healthy
+    networks:
+      - yb-net
+
+  yb-tserver7:
+    image: yugabytedb/yugabyte:latest
+    container_name: yb-tserver7
+    hostname: yb-tserver7
+    command: >
+      bin/yb-tserver
+        --fs_data_dirs=/mnt/tserver-data
+        --tserver_master_addrs=yb-master:7100
+        --rpc_bind_addresses=yb-tserver7:9100
+        --webserver_interface=0.0.0.0
+        --webserver_port=9000
+        --pgsql_proxy_bind_address=0.0.0.0:5433
+        --ysql_enable_auth=false
+        --ysql_max_connections=1000
+    ports:
+      - "9007:9000"
+    depends_on:
+      yb-master:
+        condition: service_healthy
+    networks:
+      - yb-net
+
+networks:
+  yb-net:
+    driver: bridge
