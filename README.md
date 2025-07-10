@@ -18,7 +18,7 @@
 
 
 ## Data analysis
-### The R Codes under the [Data Analysis](./Data%20Analysis) folder above are attached as part of the data analysis.
+### The R Codes & Charts under the [Data Analysis](./Data%20Analysis) folder above are attached as part of the data analysis.
 
 ## Collected data
 ### Collected data used in this experiment is also added in the folder [Experiment Data](./Experiment%20Data).
