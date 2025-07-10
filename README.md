@@ -7,7 +7,7 @@
 2. Install Postgres.
    
 ## To run the experiment, do the following steps: 
-1. Enter the directory of either 'Experiment Setups - Citus' or  'Experiment Setups - Yugabyte' using `cd <Experiment folder>`.
+1. Enter the directory of either [Experiment Setups - Citus](./Experiment%20Setups%20-%20Citus) or [Experiment Setups - Yugabyte](./Experiment%20Setups%20-%20Yugabyte) using `cd <Experiment folder>`.
 2. Run the script using `./run_expermint <number of worker nodes>`.
 3. After this step, you will get a folder with pgbench log results.
 
@@ -18,13 +18,13 @@
 
 
 ## Data analysis
-### The R Codes under the "Data Analysis" folder above are attached as part of the data analysis.
+### The R Codes under the [Data Analysis](./Data%20Analysis) folder above are attached as part of the data analysis.
 
 ## Collected data
-### Collected data used in this experiment is also added in the folder "Experiment Data" above.
+### Collected data used in this experiment is also added in the folder [Experiment Data](./Experiment%20Data).
 
 ## Evaluation & Workload
-- The workload SQL file used is attached under the following path `\Evaluation Workloads\read50_write50.sql`
+- The workload SQL file is located at [Evaluation Workloads/read50_write50.sql](./Evaluation%20Workloads/read50_write50.sql).
 - The `pgbench` used with 20 concurrent clients with the following list of transactions per client: 100, 200, 300, 400, 500.
 
 
