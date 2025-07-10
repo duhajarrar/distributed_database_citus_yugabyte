@@ -11,7 +11,7 @@
 2. Run the script using `./run_expermint <number of worker nodes>`.
 3. After this step, you will get a folder with pgbench log results.
 
-## Find our results after running these steps on both databases in the folder "Experiment Results" above. Our experiment was done using 3 times:
+## Find our results after running these steps on both databases in the folder [Experiment Results](./Experiment%20Results) above. Our experiment was done using 3 times:
 - The 1st time using 3 worker nodes.
 - The 2nd time using 5 worker nodes.
 - The 3rd time using 7 worker nodes.
